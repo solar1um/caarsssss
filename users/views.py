@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from users.forms import ProfileRegistrationForm
+from users.forms import ProfileRegistrationForm, ProfileUpdateForm
 
 
 def register(request):
@@ -19,12 +19,14 @@ def register(request):
 @login_required
 def profile(request):
     if request.method == 'POST':
-        form = ProfileRegistrationForm(request.POST, request.FILES,
+        form = ProfileUpdateForm(request.POST, request.FILES,
                                        instance=request.user)
-        context = {
-            'form': form
-        }
-        return render(request, 'users/profile.html',
-                      context)
+        if form.is_valid():
+            form.save()
+    form = ProfileUpdateForm(instance=request.user)
+    context = {
+        'form': form
+    }
+    return render(request, 'users/profile.html', context)
 
 

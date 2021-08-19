@@ -33,14 +33,31 @@ class Car(models.Model):
         ('left', 'left'),
         ('right', 'right')
     )
-
+    fuel = (
+        ('petrol', 'petrol'),
+        ('diesel', 'diesel'),
+        ('gas', 'gas'),
+        ('electric', 'electric')
+    )
+    type_of_car = (
+        ('new', 'new'),
+        ('user', 'user')
+    )
+    type = models.CharField(choices=type_of_car, max_length=5,
+                            blank=True, null=True)
     brand = models.ForeignKey(Brand, on_delete=models.SET_NULL,
                               related_name='ads', blank=True, null=True)
     model = models.CharField(max_length=30, blank=True, null=True)
     author = models.ForeignKey(Profile, on_delete=models.SET_NULL,
                                related_name='author_ads', blank=True, null=True)
+    fuel = models.CharField(choices=fuel, max_length=10,
+                            blank=True, null=True)
+    power = models.CharField(max_length=5,
+                             blank=True, null=True)
     description = models.TextField(max_length=400)
+    extras = models.CharField(max_length=200, default=0)
     volume = models.FloatField()
+    mileage = models.PositiveIntegerField(default=0)
     price = models.PositiveIntegerField(default=0)
     image = models.ImageField(upload_to='ads', blank=True, null=True)
     release_date = models.CharField(choices=year_choices(), max_length=4)
@@ -59,3 +76,6 @@ class Car(models.Model):
             output_size = (1280, 720)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+    def __self__(self):
+        return self.color, self.model, self.description, self.extras

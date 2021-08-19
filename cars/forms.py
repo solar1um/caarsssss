@@ -6,11 +6,25 @@ class CreateAdForm(forms.ModelForm):
     class Meta:
         model = Car
         fields = [
-            'brand', 'model', 'volume', 'image',
-            'release_date', 'transmission', 'color',
-            'rul', 'price', 'description',
+            'brand', 'model', 'volume', 'mileage', 'fuel', 'image',
+            'release_date', 'transmission', 'power', 'color',
+            'rul', 'price', 'description', 'extras'
         ]
         labels = {
-            'price': ("Price $")
+            'price': ("Price $"),
+            'mileage':("Mileage (km)")
         }
 
+
+class CarUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = [
+            'brand', 'model', 'volume', 'mileage', 'fuel', 'image',
+            'release_date', 'transmission', 'power', 'color',
+            'rul', 'price', 'description', 'extras'
+        ]
+        labels = {
+            'price': ("Price $"),
+            'mileage': ("Mileage (km)")
+        }

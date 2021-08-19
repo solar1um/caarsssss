@@ -14,32 +14,37 @@
                 </div>
             </div>
           </div>
+
+
           <!-- // Item -->
           <!-- Item -->
-          <div class="item item-2">
-            <div class="img-fill">
-                <div class="text-content">
-                  <h6>magni deserunt dolorem harum quas!</h6>
-                  <h4>Aliquam iusto harum <br>  ratione porro odio</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At culpa cupiditate mollitia adipisci assumenda laborum eius quae quo excepturi, eveniet. Dicta nulla ea beatae consequuntur?</p>
-                  <a href="about.html" class="filled-button">About Us</a>
-                </div>
-            </div>
-          </div>
-          <!-- // Item -->
-          <!-- Item -->
-          <div class="item item-3">
-            <div class="img-fill">
-                <div class="text-content">
-                  <h6>alias officia qui quae vitae natus!</h6>
-                  <h4>Lorem ipsum dolor <br>sit amet, consectetur.</h4>
-                  <p>Vivamus ut tellus mi. Nulla nec cursus elit, id vulputate mi. Sed nec cursus augue. Phasellus lacinia ac sapien vitae dapibus. Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</p>
-                  <a href="contact.html" class="filled-button">Contact Us</a>
-                </div>
-            </div>
-          </div>
-          <!-- // Item -->
-        </div>
+<!--          <div class="item item-2">-->
+<!--            <div class="img-fill">-->
+<!--                <div class="text-content">-->
+<!--                  <h6>magni deserunt dolorem harum quas!</h6>-->
+<!--                  <h4>Aliquam iusto harum <br>  ratione porro odio</h4>-->
+<!--                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At culpa cupiditate mollitia adipisci assumenda laborum eius quae quo excepturi, eveniet. Dicta nulla ea beatae consequuntur?</p>-->
+<!--                  <a href="about.html" class="filled-button">About Us</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          &lt;!&ndash; // Item &ndash;&gt;-->
+<!--          &lt;!&ndash; Item &ndash;&gt;-->
+<!--          <div class="item item-3">-->
+<!--            <div class="img-fill">-->
+<!--                <div class="text-content">-->
+<!--                  <h6>alias officia qui quae vitae natus!</h6>-->
+<!--                  <h4>Lorem ipsum dolor <br>sit amet, consectetur.</h4>-->
+<!--                  <p>Vivamus ut tellus mi. Nulla nec cursus elit, id vulputate mi. Sed nec cursus augue. Phasellus lacinia ac sapien vitae dapibus. Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</p>-->
+<!--                  <a href="contact.html" class="filled-button">Contact Us</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          &lt;!&ndash; // Item &ndash;&gt;-->
+<!--        </div>-->
+
+
+
     </div>
     <!-- Banner Ends Here -->
 
@@ -62,76 +67,35 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Featured <em>Cars</em></h2>
-              <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
+              <h2>Last <em>Cars :</em></h2>
             </div>
           </div>
           <div class="col-md-4">
+            {% for car in cars|slice:"0:3" %}
             <div class="service-item">
-              <img src="assets/images/product-1-720x480.jpg" alt="">
               <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
+
+
+                <h4>{{ car.brand.title }}</h4>
                 <div style="margin-bottom:10px;">
                   <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                      <del></del>${{ car.price }}
                   </span>
                 </div>
 
                 <p>
-                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
+                  <i class="fa fa-dashboard"></i> {{ car.mileage }}km &nbsp;&nbsp;&nbsp;
+                  <i class="fa fa-cube"></i> {{ car.volume }}L &nbsp;&nbsp;&nbsp;
+                  <i class="fa fa-cog"></i>{{ car.transmission }} &nbsp;&nbsp;&nbsp;
                 </p>
-                <a href="car-details.html" class="filled-button">View More</a>
+                <a href="{% url 'car_detail' car.id %}" class="filled-button">View More</a>
               </div>
             </div>
-            
-            <br>
-          </div>
-          <div class="col-md-4">
-            <div class="service-item">
-              <img src="assets/images/product-2-720x480.jpg" alt="">
-              <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
-                <div style="margin-bottom:10px;">
-                  <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                  </span>
-                </div>
+            {% endfor %}
 
-                <p>
-                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                </p>
-                <a href="car-details.html" class="filled-button">View More</a>
-              </div>
-            </div>
 
             <br>
-          </div>
-          <div class="col-md-4">
-            <div class="service-item">
-              <img src="assets/images/product-3-720x480.jpg" alt="">
-              <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
-                <div style="margin-bottom:10px;">
-                  <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                  </span>
-                </div>
 
-                <p>
-                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                </p>
-                <a href="car-details.html" class="filled-button">View More</a>
-              </div>
-            </div>
-
-            <br>
-          </div>
         </div>
       </div>
     </div>
@@ -160,48 +124,12 @@
 
     <div class="more-info">
       <div class="container">
-        <div class="section-heading">
-          <h2>Read our <em>Blog</em></h2>
-          <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
-        </div>
+
 
         <div class="row" id="tabs">
-          <div class="col-md-4">
-            <ul>
-              <li><a href='#tabs-1'>Lorem ipsum dolor sit amet, consectetur adipisicing <br> <small>John Doe &nbsp;|&nbsp; 27.07.2020 10:10</small></a></li>
-              <li><a href='#tabs-2'>Mauris lobortis quam id dictum dignissim <br> <small>John Doe &nbsp;|&nbsp; 27.07.2020 10:10</small></a></li>
-              <li><a href='#tabs-3'>Class aptent taciti sociosqu ad litora torquent per <br> <small>John Doe &nbsp;|&nbsp; 27.07.2020 10:10</small></a></li>
-            </ul>
 
-            <br>
 
-            <div class="text-center">
-              <a href="blog.html" class="filled-button">Read More</a>
-            </div>
 
-            <br>
-          </div>
-
-          <div class="col-md-8">
-            <section class='tabs-content'>
-              <article id='tabs-1'>
-                <img src="assets/images/blog-image-1-940x460.jpg" alt="">
-                <h4><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></h4>
-                <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet.</p>
-              </article>
-              <article id='tabs-2'>
-                <img src="assets/images/blog-image-2-940x460.jpg" alt="">
-                <h4><a href="blog-details.html">Mauris lobortis quam id dictum dignissim</a></h4>
-                <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet</p>
-              </article>
-              <article id='tabs-3'>
-                <img src="assets/images/blog-image-3-940x460.jpg" alt="">
-                <h4><a href="blog-details.html">Class aptent taciti sociosqu ad litora torquent per</a></h4>
-                <p>Mauris lobortis quam id dictum dignissim. Donec pellentesque erat dolor, cursus dapibus turpis hendrerit quis. Suspendisse at suscipit arcu. Nulla sed erat lectus. Nulla facilisi. In sit amet neque sapien. Donec scelerisque mi at gravida efficitur. Nunc lacinia a est eu malesuada. Curabitur eleifend elit sapien, sed pulvinar orci luctus eget. 
-                </p>
-              </article>
-            </section>
-          </div>
         </div>
 
         
@@ -219,7 +147,7 @@
           </div>
           <div class="col-md-12">
             <div class="owl-testimonials owl-carousel">
-              
+
               <div class="testimonial-item">
                 <div class="inner-content">
                   <h4>George Walker</h4>
@@ -228,7 +156,7 @@
                 </div>
                 <img src="http://placehold.it/60x60" alt="">
               </div>
-              
+
               <div class="testimonial-item">
                 <div class="inner-content">
                   <h4>John Smith</h4>
@@ -237,7 +165,7 @@
                 </div>
                 <img src="http://placehold.it/60x60" alt="">
               </div>
-              
+
               <div class="testimonial-item">
                 <div class="inner-content">
                   <h4>David Wood</h4>
@@ -246,7 +174,7 @@
                 </div>
                 <img src="http://placehold.it/60x60" alt="">
               </div>
-              
+
               <div class="testimonial-item">
                 <div class="inner-content">
                   <h4>Andrew Boom</h4>
@@ -262,54 +190,5 @@
       </div>
     </div>
 
-    <div class="callback-form">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-heading">
-              <h2>Request a <em>call back</em></h2>
-              <span>Etiam suscipit ante a odio consequat</span>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="contact-form">
-              <form id="contact" action="" method="post">
-                <div class="row">
-                  <div class="col-lg-4 col-md-12 col-sm-12">
-                    <fieldset>
-                      <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-4 col-md-12 col-sm-12">
-                    <fieldset>
-                      <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="">
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-4 col-md-12 col-sm-12">
-                    <fieldset>
-                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="">
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-12">
-                    <fieldset>
-                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-12">
-                    <fieldset>
-                      <button type="submit" id="form-submit" class="border-button">Send Message</button>
-                    </fieldset>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
-      </div>
-    </div>
 {% endblock content %}
